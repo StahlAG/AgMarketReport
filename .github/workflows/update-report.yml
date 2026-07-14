@@ -1,11 +1,13 @@
-name: Daily AgMarketReport Update
+name: Update Market Report
 
 on:
   schedule:
-    # 7:00 AM Pacific Daylight Time = 14:00 UTC
+    # Runs every day at 7:00 AM Pacific during daylight saving time (14:00 UTC)
     - cron: '0 14 * * *'
-
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -15,10 +17,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print update time
-        run: |
-          echo "AgMarketReport update started"
-          date
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-      - name: Finished
-        run: echo "Ready to generate today's report."
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Update market data
+        run: |
+          python update_market.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add market-data.json
+          git commit -m "Daily market update" || echo "No changes to commit"
+          git push
