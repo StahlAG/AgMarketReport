@@ -1,80 +1,49 @@
 import requests
+from bs4 import BeautifulSoup
 import json
 from datetime import datetime
 
-today = datetime.now()
-
-# ---------------------------------------
-# SETTINGS
-# ---------------------------------------
-
-API_URL = "https://www.ritzwhse.com/cash-bids"
+URL = "https://www.ritzwhse.com/cash-bids"
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0 Safari/537.36"
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/138.0 Safari/537.36"
+    )
 }
 
-# ---------------------------------------
-# DOWNLOAD DATA
-# ---------------------------------------
-
-response = requests.get(API_URL, headers=HEADERS)
+response = requests.get(URL, headers=HEADERS, timeout=30)
 response.raise_for_status()
 
-feed = response.json()
+soup = BeautifulSoup(response.text, "html.parser")
 
-# ---------------------------------------
-# BUILD RITZVILLE GRAIN TABLE
-# ---------------------------------------
+today = datetime.now()
 
 wheat = []
 
-for bid in feed:
+# ---------- Find every table row ----------
+for row in soup.find_all("tr"):
 
-    grade = bid.get("grade", "").upper()
+    cols = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
 
-    if grade in [
-        "HRW",
-        "HRS",
-        "DNS",
-        "SOFT WHITE",
-        "FEED WHEAT"
-    ]:
+    if len(cols) < 3:
+        continue
 
-        wheat.append({
-            "market": grade,
-            "price": bid.get("cashBid", "--"),
-            "change": bid.get("change", "-")
-        })
+    print(cols)          # <-- TEMPORARY (important)
 
-# ---------------------------------------
-# MORNING REPORT
-# ---------------------------------------
-
-coffeeReport = (
-    "Cash grain bids updated directly from Ritzville. "
-    "Markets continue to watch weather, export demand, "
-    "and protein premiums."
-)
-
-# ---------------------------------------
-# OUTPUT JSON
-# ---------------------------------------
-
-data = {
+market = {
     "date": today.strftime("%A, %B %d, %Y"),
     "updated": today.strftime("%I:%M %p"),
+    "marketMood": "Neutral",
 
-    "marketMood": "Bullish",
-
-    "coffeeReport": coffeeReport,
+    "coffeeReport":
+        "Gathering today's Ritzville grain bids.",
 
     "wheat": wheat,
 
     "crops": [],
-
     "livestock": [],
-
     "financial": [],
 
     "weather": {
@@ -85,6 +54,6 @@ data = {
 }
 
 with open("market-data.json", "w") as f:
-    json.dump(data, f, indent=4)
+    json.dump(market, f, indent=4)
 
-print("AgMarketReport updated.")
+print("Done")
