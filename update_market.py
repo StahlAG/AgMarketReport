@@ -16,28 +16,54 @@ response.raise_for_status()
 
 print("Page downloaded.")
 
-# Save the HTML so we can inspect it if needed
-with open("page.html", "w", encoding="utf-8") as f:
-    f.write(response.text)
-
 soup = BeautifulSoup(response.text, "html.parser")
 
-print("\n----- PAGE TEXT -----\n")
-
 text = soup.get_text("\n", strip=True)
-
-for line in text.split("\n"):
-    if line.strip():
-        print(line)
+lines = [line.strip() for line in text.split("\n") if line.strip()]
 
 today = datetime.now()
+
+wheat = []
+
+for i, line in enumerate(lines):
+
+    if line.startswith("10-SWH"):
+        wheat.append({
+            "market": "10-SWH",
+            "price": float(lines[i + 3]),
+            "change": "-"
+        })
+
+    elif line.startswith("12-WHC"):
+        wheat.append({
+            "market": "12-WHC",
+            "price": float(lines[i + 3]),
+            "change": "-"
+        })
+
+    elif line.startswith("20-HRW"):
+        wheat.append({
+            "market": "20-HRW",
+            "price": float(lines[i + 3]),
+            "change": "-"
+        })
+
+    elif line.startswith("30-DNS"):
+        wheat.append({
+            "market": "30-DNS",
+            "price": float(lines[i + 3]),
+            "change": "-"
+        })
+
+print("Found wheat bids:")
+print(wheat)
 
 market = {
     "date": today.strftime("%A, %B %d, %Y"),
     "updated": today.strftime("%I:%M %p"),
     "marketMood": "Neutral",
-    "coffeeReport": "Updating market data...",
-    "wheat": [],
+    "coffeeReport": "Today's Ritzville grain bids have been updated.",
+    "wheat": wheat,
     "crops": [],
     "livestock": [],
     "financial": [],
@@ -51,4 +77,4 @@ market = {
 with open("market-data.json", "w") as f:
     json.dump(market, f, indent=4)
 
-print("\nDone.")
+print("Done.")
