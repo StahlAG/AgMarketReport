@@ -26,6 +26,10 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+          - name: Install Python packages
+            run: |
+           pip install requests beautifulsoup4
+
       - name: Update market data
         run: |
           python update_market.py
