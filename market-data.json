@@ -1,95 +1,15 @@
-import requests
-from bs4 import BeautifulSoup
-import json
-from datetime import datetime
-
-URL = "https://www.ritzwhse.com/cash-bids"
-
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
-
-response = requests.get(URL, headers=HEADERS, timeout=30)
-response.raise_for_status()
-
-soup = BeautifulSoup(response.text, "html.parser")
-
-wheat = []
-
-rows = soup.find_all("tr")
-
-for row in rows:
-
-    cols = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
-
-    if len(cols) < 2:
-        continue
-
-    text = " ".join(cols).upper()
-
-    price = cols[-1]
-
-    if "HRW" in text:
-        wheat.append({
-            "market": "HRW",
-            "price": price,
-            "change": "-"
-        })
-
-    elif "HRS" in text:
-        wheat.append({
-            "market": "HRS",
-            "price": price,
-            "change": "-"
-        })
-
-    elif "DNS" in text:
-        wheat.append({
-            "market": "DNS",
-            "price": price,
-            "change": "-"
-        })
-
-    elif "SWH" in text:
-        wheat.append({
-            "market": "Soft White",
-            "price": price,
-            "change": "-"
-        })
-
-    elif "WHC" in text:
-        wheat.append({
-            "market": "12% White",
-            "price": price,
-            "change": "-"
-        })
-
-today = datetime.now()
-
-market = {
-    "date": today.strftime("%A, %B %d, %Y"),
-    "updated": today.strftime("%I:%M %p"),
+{
+    "date": "Tuesday, July 14, 2026",
+    "updated": "10:37 PM",
     "marketMood": "Neutral",
-
-    "coffeeReport":
-        "Local Ritzville Warehouse cash bids updated automatically.",
-
-    "wheat": wheat,
-
+    "coffeeReport": "Gathering today's Ritzville grain bids.",
+    "wheat": [],
     "crops": [],
-
     "livestock": [],
-
     "financial": [],
-
     "weather": {
         "location": "Ritzville, WA",
         "temp": "--",
         "conditions": "Updating..."
     }
 }
-
-with open("market-data.json", "w") as f:
-    json.dump(market, f, indent=4)
-
-print(f"Wrote {len(wheat)} wheat bids.")
