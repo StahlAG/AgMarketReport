@@ -6,47 +6,41 @@ from datetime import datetime
 URL = "https://www.ritzwhse.com/cash-bids"
 
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/138.0 Safari/537.36"
-    )
+    "User-Agent": "Mozilla/5.0"
 }
+
+print("Downloading page...")
 
 response = requests.get(URL, headers=HEADERS, timeout=30)
 response.raise_for_status()
 
+print("Page downloaded.")
+
+# Save the HTML so we can inspect it if needed
+with open("page.html", "w", encoding="utf-8") as f:
+    f.write(response.text)
+
 soup = BeautifulSoup(response.text, "html.parser")
 
+print("\n----- PAGE TEXT -----\n")
+
+text = soup.get_text("\n", strip=True)
+
+for line in text.split("\n"):
+    if line.strip():
+        print(line)
+
 today = datetime.now()
-
-wheat = []
-
-# ---------- Find every table row ----------
-for row in soup.find_all("tr"):
-
-    cols = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
-    print(cols)
-
-    if len(cols) < 3:
-        continue
-
-    print(cols)          # <-- TEMPORARY (important)
 
 market = {
     "date": today.strftime("%A, %B %d, %Y"),
     "updated": today.strftime("%I:%M %p"),
     "marketMood": "Neutral",
-
-    "coffeeReport":
-        "Gathering today's Ritzville grain bids.",
-
-    "wheat": wheat,
-
+    "coffeeReport": "Updating market data...",
+    "wheat": [],
     "crops": [],
     "livestock": [],
     "financial": [],
-
     "weather": {
         "location": "Ritzville, WA",
         "temp": "--",
@@ -57,4 +51,4 @@ market = {
 with open("market-data.json", "w") as f:
     json.dump(market, f, indent=4)
 
-print("Done")
+print("\nDone.")
