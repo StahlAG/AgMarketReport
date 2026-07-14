@@ -1,68 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgMarketReport</title>
 
-<title>AgMarketReport</title>
-
-<style>
-
-body{
-margin:0;
-background:#0f172a;
-font-family:Arial,Helvetica,sans-serif;
-color:white;
-text-align:center;
-}
-
-header{
-background:#143d1c;
-padding:25px;
-font-size:42px;
-font-weight:bold;
-}
-
-h2{
-font-weight:normal;
-margin-top:10px;
-}
-
-img{
-width:95%;
-max-width:1400px;
-margin:30px auto;
-display:block;
-border-radius:18px;
-box-shadow:0 12px 35px rgba(0,0,0,.45);
-}
-
-footer{
-padding:25px;
-font-size:18px;
-color:#cfcfcf;
-}
-
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-🌾 AgMarketReport
+<header class="hero">
+    <div class="hero-text">
+        <h1>🌾 AgMarketReport</h1>
+        <h2>Built for farmers. Updated every morning.</h2>
+
+        <button id="darkModeBtn">
+            🌙 Dark Mode
+        </button>
+    </div>
 </header>
 
-<h2>Built for farmers. Updated every morning.</h2>
+<div class="container">
 
-<img src="market-report.png">
+<section class="banner">
+
+<div>
+<h2>☀️ Good Morning</h2>
+<p id="todayDate">Loading...</p>
+</div>
+
+<div class="mood">
+<h2>Market Mood</h2>
+<h1 id="marketMood">Bullish 🟢</h1>
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>☕ Morning Coffee Report</h2>
+
+<p id="summary">
+Loading today's market summary...
+</p>
+
+</section>
+
+<div class="grid">
+
+<section class="card">
+
+<h2>🌾 Wheat</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Market</th>
+<th>Price</th>
+<th>Change</th>
+</tr>
+
+</thead>
+
+<tbody id="wheatTable">
+</tbody>
+
+</table>
+
+</section>
+
+<section class="card">
+
+<h2>🌱 Crops</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Crop</th>
+<th>Price</th>
+<th>Change</th>
+</tr>
+
+</thead>
+
+<tbody id="cropTable">
+</tbody>
+
+</table>
+
+</section>
+
+<section class="card">
+
+<h2>🐄 Livestock</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Market</th>
+<th>Price</th>
+<th>Change</th>
+</tr>
+
+</thead>
+
+<tbody id="livestockTable">
+</tbody>
+
+</table>
+
+</section>
+
+<section class="card">
+
+<h2>📈 Financial Markets</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Market</th>
+<th>Value</th>
+<th>Change</th>
+</tr>
+
+</thead>
+
+<tbody id="financialTable">
+</tbody>
+
+</table>
+
+</section>
+
+<section class="card weather">
+
+<h2>☀️ Weather</h2>
+
+<div id="weather">
+
+<p>Central Plains</p>
+
+<h3>78°F</h3>
+
+<p>Sunny</p>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>📢 Last Updated</h2>
+
+<h3 id="lastUpdated">
+Loading...
+</h3>
+
+</section>
+
+</div>
 
 <footer>
 
-Daily Agricultural Market Dashboard
+<hr>
+
+<p>
+🌾 Built for Farmers |
+Trusted Data |
+Better Decisions
+</p>
 
 </footer>
 
-</body>
+</div>
 
+<script src="script.js"></script>
+
+</body>
 </html>
