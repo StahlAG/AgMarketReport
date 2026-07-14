@@ -26,6 +26,7 @@ wheat = []
 for row in soup.find_all("tr"):
 
     cols = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
+    print(cols)
 
     if len(cols) < 3:
         continue
