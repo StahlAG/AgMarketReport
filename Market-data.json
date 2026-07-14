@@ -1,1 +1,131 @@
+{
+  "lastUpdated": "Monday, July 13, 2026 - 7:00 AM PDT",
 
+  "marketMood": "Bullish",
+
+  "summary": "Wheat is trading slightly higher this morning. Canola remains firm while cattle markets continue to show strength. Traders are watching weather forecasts and export demand.",
+
+  "wheat": [
+    {
+      "market": "Portland HRS",
+      "price": 6.45,
+      "change": "+0.09"
+    },
+    {
+      "market": "Portland HRW",
+      "price": 6.12,
+      "change": "-0.03"
+    },
+    {
+      "market": "Montana HRS",
+      "price": 6.70,
+      "change": "+0.12"
+    },
+    {
+      "market": "Montana HRW",
+      "price": 6.25,
+      "change": "+0.08"
+    },
+    {
+      "market": "Chicago HRW",
+      "price": 5.75,
+      "change": "+0.07"
+    },
+    {
+      "market": "Kansas City HRW",
+      "price": 6.05,
+      "change": "-0.04"
+    }
+  ],
+
+  "crops": [
+    {
+      "market": "Canola",
+      "price": 585.50,
+      "change": "+2.30"
+    },
+    {
+      "market": "Barley",
+      "price": 4.95,
+      "change": "+0.10"
+    },
+    {
+      "market": "Corn",
+      "price": 4.48,
+      "change": "+0.03"
+    },
+    {
+      "market": "Lentils",
+      "price": 0.38,
+      "change": "+0.01"
+    },
+    {
+      "market": "Peas",
+      "price": 6.40,
+      "change": "+0.05"
+    },
+    {
+      "market": "Timothy Hay",
+      "price": 235.00,
+      "change": "+5.00"
+    },
+    {
+      "market": "Alfalfa",
+      "price": 210.00,
+      "change": "+4.00"
+    }
+  ],
+
+  "livestock": [
+    {
+      "market": "Live Cattle",
+      "price": 204.25,
+      "change": "+1.10"
+    },
+    {
+      "market": "Feeder Cattle",
+      "price": 288.50,
+      "change": "+2.35"
+    },
+    {
+      "market": "Lean Hogs",
+      "price": 96.75,
+      "change": "-0.25"
+    }
+  ],
+
+  "financial": [
+    {
+      "market": "S&P 500",
+      "price": 5912.17,
+      "change": "+0.42%"
+    },
+    {
+      "market": "Dow Jones",
+      "price": 42215.73,
+      "change": "+0.28%"
+    },
+    {
+      "market": "NASDAQ",
+      "price": 19175.87,
+      "change": "+0.39%"
+    },
+    {
+      "market": "US Dollar Index",
+      "price": 104.25,
+      "change": "-0.22%"
+    },
+    {
+      "market": "Crude Oil (WTI)",
+      "price": 77.91,
+      "change": "+0.76%"
+    }
+  ],
+
+  "weather": {
+    "region": "Pacific Northwest",
+    "temperature": "78°F",
+    "condition": "Sunny",
+    "wind": "NW 10 mph"
+  }
+}
