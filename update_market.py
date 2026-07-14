@@ -1,66 +1,89 @@
-import json
 import requests
 from bs4 import BeautifulSoup
+import json
 from datetime import datetime
-
-URL = "https://www.ritzwhse.com/cash-bids"
 
 today = datetime.now()
 
-response = requests.get(URL, timeout=30)
-response.raise_for_status()
+url = "https://www.ritzwhse.com/cash-bids"
 
-soup = BeautifulSoup(response.text, "lxml")
+headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+response = requests.get(url, headers=headers)
+
+prices = []
+
+if response.status_code == 200:
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    rows = soup.find_all("tr")
+
+    for row in rows:
+        cols = [c.get_text(strip=True) for c in row.find_all(["td","th"])]
+
+        if len(cols) >= 2:
+            prices.append(cols)
+
+else:
+    print("Unable to download Ritzville bids")
 
 wheat = []
 
-# Find every commodity section
-sections = soup.find_all(["h2", "h3"])
+for row in prices:
 
-for section in sections:
+    text = " ".join(row)
 
-    commodity = section.get_text(strip=True)
+    if "10-SWH" in text:
+        wheat.append({"market":"10 SWH","price":row[-1],"change":"-"})
 
-    table = section.find_next("table")
+    elif "12-WHC" in text:
+        wheat.append({"market":"12 WHC","price":row[-1],"change":"-"})
 
-    if table is None:
-        continue
+    elif "20-HRW" in text:
+        wheat.append({"market":"20 HRW","price":row[-1],"change":"-"})
 
-    rows = table.find_all("tr")
+    elif "30-DNS" in text:
+        wheat.append({"market":"30 DNS","price":row[-1],"change":"-"})
 
-    for row in rows[1:]:
+marketMood = "Neutral"
 
-        cols = row.find_all("td")
-
-        if len(cols) < 2:
-            continue
-
-        delivery = cols[0].get_text(strip=True)
-        bid = cols[1].get_text(strip=True)
-
-        wheat.append({
-            "market": f"{commodity} {delivery}",
-            "price": bid,
-            "change": ""
-        })
+coffeeReport = (
+    f"Good morning! Local cash wheat bids were updated automatically from "
+    f"Ritzville Warehouse at {today.strftime('%I:%M %p')}. "
+    f"Additional grain and livestock markets will be added next."
+)
 
 data = {
     "date": today.strftime("%A, %B %d, %Y"),
     "updated": today.strftime("%I:%M %p"),
-    "marketMood": "Bullish",
-    "coffeeReport": "Cash bids automatically updated from Ritzville Warehouse.",
+    "marketMood": marketMood,
+    "coffeeReport": coffeeReport,
+
     "wheat": wheat,
-    "crops": [],
-    "livestock": [],
-    "financial": [],
-    "weather": {
-        "location": "Ritzville",
-        "temp": "--",
-        "conditions": "--"
+
+    "crops": [
+        {"market":"Canola","price":"Coming Soon","change":"-"},
+        {"market":"Corn","price":"Coming Soon","change":"-"}
+    ],
+
+    "livestock":[
+        {"market":"Live Cattle","price":"Coming Soon","change":"-"},
+        {"market":"Feeder Cattle","price":"Coming Soon","change":"-"}
+    ],
+
+    "financial":[],
+
+    "weather":{
+        "location":"Washington",
+        "temp":"--",
+        "conditions":"Updating..."
     }
 }
 
-with open("market-data.json", "w") as f:
-    json.dump(data, f, indent=4)
+with open("market-data.json","w") as f:
+    json.dump(data,f,indent=4)
 
-print("market-data.json updated.")
+print("Market report updated successfully.")
