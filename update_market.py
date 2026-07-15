@@ -27,28 +27,28 @@ wheat = []
 
 for i, line in enumerate(lines):
 
-    if line.startswith("10-SWH"):
+    if line.startswith("Soft White Wheat"):
         wheat.append({
             "market": "10-SWH",
             "price": float(lines[i + 4]),
             "change": "-"
         })
 
-    elif line.startswith("12-WHC"):
+    elif line.startswith("White Wheat 12%"):
         wheat.append({
             "market": "12-WHC",
             "price": float(lines[i + 4]),
             "change": "-"
         })
 
-    elif line.startswith("20-HRW"):
+    elif line.startswith("Hard Red Winter"):
         wheat.append({
             "market": "20-HRW",
             "price": float(lines[i + 4]),
             "change": "-"
         })
 
-    elif line.startswith("30-DNS"):
+    elif line.startswith("Dark Northern Spring"):
         wheat.append({
             "market": "30-DNS",
             "price": float(lines[i + 4]),
