@@ -1,88 +1,107 @@
 // =====================================
-// AgMarketReport
-// Reads market-data.json
+// AgMarketReport Dashboard V2
 // =====================================
 
 fetch("market-data.json")
-    .then(response => response.json())
-    .then(data => {
+.then(response => response.json())
+.then(data => {
 
-        // Header
-        document.getElementById("todayDate").textContent = data.date;
-        document.getElementById("marketMood").textContent = data.marketMood;
-        document.getElementById("summary").textContent = data.coffeeReport;
-        document.getElementById("lastUpdated").textContent = data.updated;
+    // -----------------------------
+    // Market Mood
+    // -----------------------------
 
-        // Build any table
-        function buildTable(tableId, rows) {
+    document.getElementById("marketMood").innerHTML =
+        data.marketMood || "Loading...";
 
-            const table = document.getElementById(tableId);
+    // Optional mood bar
+    const moodFill = document.getElementById("moodFill");
 
-            if (!table) return;
+    if (moodFill) {
 
-            table.innerHTML = "";
+        switch ((data.marketMood || "").toLowerCase()) {
 
-            if (!rows || rows.length === 0) {
-                table.innerHTML =
-                    "<tr><td colspan='3'>No data available</td></tr>";
-                return;
-            }
+            case "bullish":
+                moodFill.style.width = "90%";
+                moodFill.style.background = "#2f7d32";
+                break;
 
-            rows.forEach(row => {
+            case "bearish":
+                moodFill.style.width = "30%";
+                moodFill.style.background = "#c62828";
+                break;
 
-                table.innerHTML += `
-                    <tr>
-                        <td>${row.market}</td>
-                        <td>${row.price}</td>
-                        <td>${row.change}</td>
-                    </tr>
-                `;
-
-            });
-
+            default:
+                moodFill.style.width = "60%";
+                moodFill.style.background = "#d4a017";
         }
+    }
 
-        buildTable("wheatTable", data.wheat);
-        buildTable("cropTable", data.crops);
-        buildTable("livestockTable", data.livestock);
-        buildTable("financialTable", data.financial);
+    // -----------------------------
+    // Coffee Report
+    // -----------------------------
 
-        // Weather
-        if (data.weather) {
+    document.getElementById("summary").innerHTML =
+        data.coffeeReport || "Waiting for today's report...";
 
-            document.getElementById("weather").innerHTML = `
-                <p>${data.weather.location}</p>
-                <h3>${data.weather.temp}</h3>
-                <p>${data.weather.conditions}</p>
+    // -----------------------------
+    // Last Updated
+    // -----------------------------
+
+    document.getElementById("lastUpdated").innerHTML =
+        "Last Updated: " +
+        (data.updated || "Unknown");
+
+    // -----------------------------
+    // Ritzville Cash Bids
+    // -----------------------------
+
+    let html = "";
+
+    if (data.wheat && data.wheat.length > 0) {
+
+        data.wheat.forEach(function(item){
+
+            let arrow = "➖";
+
+            if(item.change.includes("+"))
+                arrow = "🟢 ▲";
+
+            if(item.change.includes("-"))
+                arrow = "🔴 ▼";
+
+            html += `
+            <tr>
+                <td>${item.market}</td>
+                <td>$${item.price}</td>
+                <td>${arrow} ${item.change}</td>
+            </tr>
             `;
 
-        }
+        });
 
-    })
+    } else {
 
-    .catch(error => {
+        html = `
+        <tr>
+            <td colspan="3">
+                Waiting for live Ritzville bids...
+            </td>
+        </tr>
+        `;
 
-        console.error(error);
+    }
 
-        document.getElementById("summary").textContent =
-            "Unable to load market data.";
+    document.getElementById("ritzville-grain").innerHTML = html;
 
-    });
+})
+.catch(error => {
 
+    console.log(error);
 
-// =====================================
-// Dark Mode
-// =====================================
+    document.getElementById("summary").innerHTML =
+        "Unable to load market data.";
 
-const btn = document.getElementById("darkModeBtn");
-
-btn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    btn.textContent =
-        document.body.classList.contains("dark")
-            ? "☀️ Light Mode"
-            : "🌙 Dark Mode";
+    document.getElementById("ritzville-grain").innerHTML =
+        "<tr><td colspan='3'>Market data unavailable.</td></tr>";
 
 });
