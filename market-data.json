@@ -1,28 +1,28 @@
 {
-    "date": "Tuesday, July 14, 2026",
-    "updated": "11:50 PM",
+    "date": "Wednesday, July 15, 2026",
+    "updated": "05:35 AM",
     "marketMood": "Neutral",
     "coffeeReport": "Today's Ritzville grain bids have been updated.",
     "wheat": [
         {
-            "market": "10-SWH",
-            "price": 5.9,
-            "change": "-"
+            "market": "Soft White Wheat",
+            "price": 5.65,
+            "change": "--"
         },
         {
-            "market": "12-WHC",
-            "price": 6.4,
-            "change": "-"
+            "market": "White Wheat 12%",
+            "price": 6.15,
+            "change": "--"
         },
         {
-            "market": "20-HRW",
-            "price": 6.43,
-            "change": "-"
+            "market": "Hard Red Winter",
+            "price": 6.2,
+            "change": "--"
         },
         {
-            "market": "30-DNS",
-            "price": 6.38,
-            "change": "-"
+            "market": "Dark Northern Spring",
+            "price": 6.13,
+            "change": "--"
         }
     ],
     "crops": [],
