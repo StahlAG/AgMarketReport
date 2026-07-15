@@ -35,6 +35,11 @@ body{
     border-bottom:5px solid #d4af37;
 
 }
+.logo{
+   width:140px;
+   height:auto;
+   margin-bottom:15px;
+}
 
 .hero h1{
 
