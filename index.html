@@ -16,23 +16,61 @@
 
 <header class="hero">
 
-    <img src="images/logo.png"
-        alt="AgMarketReport Logo"
-        class="logo">
+    <div class="hero-left">
 
-    <h1>🌾 AgMarketReport</h1>
+        <img src="images/logo.png" class="logo" alt="AgMarketReport Logo">
 
-    <p>Live Agricultural Markets • Updated Automatically</p>
+        <div>
 
-    <button id="darkModeBtn">🌙 Dark Mode</button>
+            <h1>AgMarketReport</h1>
+
+            <p>Live Agricultural Markets • Built for Farmers</p>
+
+        </div>
+
+    </div>
+
+    <button id="darkModeBtn">
+        🌙 Dark Mode
+    </button>
 
 </header>
 
-<div class="dashboard">
+<main class="dashboard">
 
-    <!-- Top Row -->
+    <!-- Market Mood -->
 
-    <section class="card">
+    <section class="card mood">
+
+        <h2>🟢 Market Mood</h2>
+
+        <h1 id="marketMood">
+            Loading...
+        </h1>
+
+        <div class="moodBar">
+
+            <div id="moodFill"></div>
+
+        </div>
+
+    </section>
+
+    <!-- Coffee Report -->
+
+    <section class="card coffee">
+
+        <h2>☕ Morning Coffee Report</h2>
+
+        <p id="summary">
+            Loading today's report...
+        </p>
+
+    </section>
+
+    <!-- Ritzville Cash Bids -->
+
+    <section class="card wide">
 
         <h2>🌾 Ritzville Cash Bids</h2>
 
@@ -42,7 +80,7 @@
 
                 <tr>
 
-                    <th>Wheat</th>
+                    <th>Commodity</th>
                     <th>Cash Bid</th>
                     <th>Change</th>
 
@@ -50,150 +88,125 @@
 
             </thead>
 
-            <tbody id="ritzville-grain"></tbody>
+            <tbody id="ritzville-grain">
+
+            </tbody>
 
         </table>
 
     </section>
 
+    <!-- Futures -->
 
     <section class="card">
 
-        <h2>📈 Financial Markets</h2>
+        <h2>📈 Futures</h2>
 
-        <table>
+        <div class="placeholder">
 
-            <thead>
-
-                <tr>
-
-                    <th>Market</th>
-                    <th>Value</th>
-                    <th>Change</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="financialTable"></tbody>
-
-        </table>
-
-    </section>
-
-
-    <!-- Second Row -->
-
-    <section class="card">
-
-        <h2>🌱 Crops</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Commodity</th>
-                    <th>Price</th>
-                    <th>Change</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="cropTable"></tbody>
-
-        </table>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>🐄 Livestock</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Market</th>
-                    <th>Price</th>
-                    <th>Change</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="livestockTable"></tbody>
-
-        </table>
-
-    </section>
-
-
-    <!-- Third Row -->
-
-    <section class="card">
-
-        <h2>💱 Exchange Rates</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Currency</th>
-                    <th>Rate</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="exchangeTable"></tbody>
-
-        </table>
-
-    </section>
-
-
-    <section class="card">
-
-        <h2>☀️ Weather</h2>
-
-        <div id="weather">
-
-            <h3>Loading...</h3>
+            Waiting for live data...
 
         </div>
 
     </section>
 
+    <!-- Financial -->
 
-    <!-- Bottom -->
+    <section class="card">
 
-    <section class="summary card full">
+        <h2>💹 Financial Markets</h2>
 
-        <h2>☕ Morning Coffee Report</h2>
+        <div class="placeholder">
 
-        <p id="summary">
+            Waiting for live data...
 
-            Loading market summary...
-
-        </p>
+        </div>
 
     </section>
 
-</div>
+    <!-- Crops -->
+
+    <section class="card">
+
+        <h2>🌱 Crop Markets</h2>
+
+        <div class="placeholder">
+
+            Waiting for live data...
+
+        </div>
+
+    </section>
+
+    <!-- Livestock -->
+
+    <section class="card">
+
+        <h2>🐄 Livestock</h2>
+
+        <div class="placeholder">
+
+            Waiting for live data...
+
+        </div>
+
+    </section>
+
+    <!-- Potatoes -->
+
+    <section class="card">
+
+        <h2>🥔 Global Potato Market</h2>
+
+        <div class="placeholder">
+
+            Waiting for live data...
+
+        </div>
+
+    </section>
+
+    <!-- Exchange -->
+
+    <section class="card">
+
+        <h2>💱 Exchange Rates</h2>
+
+        <div class="placeholder">
+
+            Waiting for live data...
+
+        </div>
+
+    </section>
+
+    <!-- Weather -->
+
+    <section class="card wide">
+
+        <h2>☀ Weather</h2>
+
+        <div id="weather">
+
+            Waiting for live weather...
+
+        </div>
+
+    </section>
+
+</main>
 
 <footer>
 
     <p>
 
-        🌾 AgMarketReport • Live Cash Bids • Futures • Markets • Weather
+        © AgMarketReport • Built for Farmers
+
+    </p>
+
+    <p id="lastUpdated">
+
+        Last Updated: Loading...
 
     </p>
 
