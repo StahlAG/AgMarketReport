@@ -1,6 +1,6 @@
-/* ==========================
-   AgMarketReport Version 2
-========================== */
+/* =====================================
+   AgMarketReport Dashboard V2
+===================================== */
 
 *{
     margin:0;
@@ -12,124 +12,141 @@ body{
 
     font-family:Arial,Helvetica,sans-serif;
 
-    background:#edf2f7;
+    background:#eef2f5;
 
     color:#222;
 
 }
 
-/* ==========================
-   Header
-========================== */
+/* =====================================
+   HEADER
+===================================== */
 
 .hero{
 
-    background:#233b67;
+    background:#16365d;
 
     color:white;
 
-    text-align:center;
+    display:flex;
 
-    padding:35px;
+    justify-content:space-between;
 
-    border-bottom:5px solid #d4af37;
+    align-items:center;
+
+    padding:25px 50px;
+
+    border-bottom:6px solid #f2c94c;
 
 }
+
+.hero-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
 .logo{
-   width:140px;
-   height:auto;
-   margin-bottom:15px;
+
+    width:90px;
+
+    height:auto;
+
 }
 
 .hero h1{
 
-    font-size:48px;
+    font-size:42px;
 
-    margin-bottom:8px;
+    font-weight:700;
 
 }
 
 .hero p{
 
-    font-size:20px;
+    margin-top:6px;
 
-    opacity:.9;
+    color:#dbe7f4;
+
+    font-size:18px;
 
 }
 
 #darkModeBtn{
 
-    margin-top:20px;
-
-    padding:12px 30px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#4d8c3b;
+    background:#2f7d32;
 
     color:white;
 
-    cursor:pointer;
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:10px;
 
     font-size:16px;
 
-    font-weight:bold;
-
-}
-
-#darkModeBtn:hover{
-
-    background:#3b702d;
-
-}
-
-/* ==========================
-   Dashboard
-========================== */
-
-.dashboard{
-
-    max-width:1500px;
-
-    margin:auto;
-
-    padding:30px;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
-
-}
-
-/* ==========================
-   Cards
-========================== */
-
-.card{
-
-    background:white;
-
-    border-radius:15px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-
-    padding:25px;
-
-}
-
-.card:hover{
-
-    transform:translateY(-3px);
+    cursor:pointer;
 
     transition:.25s;
 
 }
 
-.full{
+#darkModeBtn:hover{
+
+    background:#27682a;
+
+}
+
+/* =====================================
+   DASHBOARD GRID
+===================================== */
+
+.dashboard{
+
+    max-width:1500px;
+
+    margin:35px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    padding:0 25px;
+
+}
+
+/* =====================================
+   CARDS
+===================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.wide{
 
     grid-column:1 / span 2;
 
@@ -137,19 +154,57 @@ body{
 
 .card h2{
 
-    color:#233b67;
+    color:#16365d;
 
-    margin-bottom:20px;
-
-    border-bottom:3px solid #d4af37;
+    margin-bottom:18px;
 
     padding-bottom:10px;
 
+    border-bottom:3px solid #f2c94c;
+
+    font-size:28px;
+
 }
 
-/* ==========================
-   Tables
-========================== */
+/* =====================================
+   MARKET MOOD
+===================================== */
+
+#marketMood{
+
+    font-size:38px;
+
+    margin:15px 0;
+
+    color:#2f7d32;
+
+}
+
+.moodBar{
+
+    height:18px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+#moodFill{
+
+    width:70%;
+
+    height:100%;
+
+    background:#2f7d32;
+
+}
+
+/* =====================================
+   TABLES
+===================================== */
 
 table{
 
@@ -161,87 +216,117 @@ table{
 
 th{
 
-    background:#233b67;
+    background:#16365d;
 
     color:white;
 
-    padding:12px;
+    padding:14px;
 
-    font-size:16px;
+    font-size:17px;
 
 }
 
 td{
 
-    padding:12px;
+    padding:14px;
 
     border-bottom:1px solid #ddd;
 
-    font-size:16px;
+    font-size:18px;
+
+}
+
+tr:nth-child(even){
+
+    background:#f8f9fb;
 
 }
 
 tr:hover{
 
-    background:#f4f7fb;
+    background:#edf7ed;
 
 }
 
-/* ==========================
-   Weather
-========================== */
+/* =====================================
+   PLACEHOLDERS
+===================================== */
+
+.placeholder{
+
+    color:#888;
+
+    text-align:center;
+
+    font-size:22px;
+
+    padding:45px 0;
+
+    font-style:italic;
+
+}
+
+/* =====================================
+   WEATHER
+===================================== */
 
 #weather{
 
     text-align:center;
 
-}
+    font-size:24px;
 
-#weather h3{
+    color:#555;
 
-    font-size:46px;
-
-    color:#233b67;
-
-    margin:15px 0;
+    padding:35px;
 
 }
 
-/* ==========================
-   Coffee Report
-========================== */
-
-.summary p{
-
-    font-size:19px;
-
-    line-height:1.7;
-
-}
-
-/* ==========================
-   Footer
-========================== */
+/* =====================================
+   FOOTER
+===================================== */
 
 footer{
 
-    margin-top:30px;
-
-    background:#233b67;
+    background:#16365d;
 
     color:white;
 
     text-align:center;
 
-    padding:18px;
+    padding:25px;
+
+    margin-top:40px;
 
 }
 
-/* ==========================
-   Mobile
-========================== */
+footer p{
+
+    margin:6px;
+
+}
+
+/* =====================================
+   MOBILE
+===================================== */
 
 @media(max-width:900px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:20px;
+
+}
+
+.hero-left{
+
+    flex-direction:column;
+
+}
 
 .dashboard{
 
@@ -249,7 +334,7 @@ footer{
 
 }
 
-.full{
+.wide{
 
     grid-column:auto;
 
@@ -261,11 +346,10 @@ footer{
 
 }
 
-.hero p{
+.card h2{
 
-    font-size:17px;
-
-}
+    font-size:24px;
 
 }
 
+}
