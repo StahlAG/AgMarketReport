@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AgMarketReport</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,175 +13,172 @@
 <body>
 
 <header class="hero">
-    <div class="hero-text">
-        <h1>🌾 AgMarketReport</h1>
-        <h2>Built for farmers. Updated every morning.</h2>
 
-        <button id="darkModeBtn">
-            🌙 Dark Mode
-        </button>
-    </div>
+    <h1>🌾 AgMarketReport</h1>
+    <p>Built for Farmers • Updated Automatically Every Morning</p>
+
+    <button id="darkModeBtn">🌙 Dark Mode</button>
+
 </header>
 
 <div class="container">
 
-<section class="banner">
+    <section class="card">
 
-<div>
-<h2>☀️ Good Morning</h2>
-<p id="todayDate">Loading...</p>
-</div>
+        <h2>☀️ Good Morning</h2>
 
-<div class="mood">
-<h2>Market Mood</h2>
-<h1 id="marketMood">Bullish 🟢</h1>
-</div>
+        <p id="todayDate">Loading...</p>
 
-</section>
+        <h3 id="marketMood">Loading...</h3>
 
-<section class="card">
+    </section>
 
-<h2>☕ Morning Coffee Report</h2>
+    <section class="card">
 
-<p id="summary">
-Loading today's market summary...
-</p>
+        <h2>☕ Morning Coffee Report</h2>
 
-</section>
+        <p id="summary">
+            Loading today's market report...
+        </p>
 
-<div class="grid">
+    </section>
 
-<section class="card">
+    <section class="card">
 
-<section class="card">
-  <h2>🌾 Ritzville Grain Bids</h2>
+        <h2>🌾 Ritzville Cash Bids</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Grade</th>
-        <th>Bid</th>
-        <th>Change</th>
-      </tr>
-    </thead>
+        <table>
 
-    <tbody id="ritzville-grain">
-      <!-- Filled by JavaScript -->
-    </tbody>
+            <thead>
 
-  </table>
-</section>
+                <tr>
+                    <th>Grade</th>
+                    <th>Bid</th>
+                    <th>Change</th>
+                </tr>
 
-<h2>🌱 Crops</h2>
+            </thead>
 
-<table>
+            <tbody id="wheatTable">
 
-<thead>
+            </tbody>
 
-<tr>
-<th>Crop</th>
-<th>Price</th>
-<th>Change</th>
-</tr>
+        </table>
 
-</thead>
+    </section>
 
-<tbody id="cropTable">
-</tbody>
+    <section class="card">
 
-</table>
+        <h2>🌱 Crops</h2>
 
-</section>
+        <table>
 
-<section class="card">
+            <thead>
 
-<h2>🐄 Livestock</h2>
+                <tr>
+                    <th>Crop</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
 
-<table>
+            </thead>
 
-<thead>
+            <tbody id="cropTable">
 
-<tr>
-<th>Market</th>
-<th>Price</th>
-<th>Change</th>
-</tr>
+            </tbody>
 
-</thead>
+        </table>
 
-<tbody id="livestockTable">
-</tbody>
+    </section>
 
-</table>
+    <section class="card">
 
-</section>
+        <h2>🐄 Livestock</h2>
 
-<section class="card">
+        <table>
 
-<h2>📈 Financial Markets</h2>
+            <thead>
 
-<table>
+                <tr>
+                    <th>Market</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                </tr>
 
-<thead>
+            </thead>
 
-<tr>
-<th>Market</th>
-<th>Value</th>
-<th>Change</th>
-</tr>
+            <tbody id="livestockTable">
 
-</thead>
+            </tbody>
 
-<tbody id="financialTable">
-</tbody>
+        </table>
 
-</table>
+    </section>
 
-</section>
+    <section class="card">
 
-<section class="card weather">
+        <h2>📈 Financial Markets</h2>
 
-<h2>☀️ Weather</h2>
+        <table>
 
-<div id="weather">
+            <thead>
 
-<p>Central Plains</p>
+                <tr>
+                    <th>Market</th>
+                    <th>Value</th>
+                    <th>Change</th>
+                </tr>
 
-<h3>78°F</h3>
+            </thead>
 
-<p>Sunny</p>
+            <tbody id="financialTable">
 
-</div>
+            </tbody>
 
-</section>
+        </table>
 
-<section class="card">
+    </section>
 
-<h2>📢 Last Updated</h2>
+    <section class="card">
 
-<h3 id="lastUpdated">
-Loading...
-</h3>
+        <h2>☀️ Weather</h2>
 
-</section>
+        <div id="weather">
+
+            <p>Ritzville, Washington</p>
+
+            <h3>Updating...</h3>
+
+            <p>Please wait...</p>
+
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>🕒 Last Updated</h2>
+
+        <h3 id="lastUpdated">
+
+            Loading...
+
+        </h3>
+
+    </section>
 
 </div>
 
 <footer>
 
-<hr>
-
-<p>
-🌾 Built for Farmers |
-Trusted Data |
-Better Decisions
-</p>
+    <p>
+        🌾 AgMarketReport • Built for Farmers
+    </p>
 
 </footer>
-
-</div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
