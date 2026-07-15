@@ -23,37 +23,64 @@ lines = [line.strip() for line in text.split("\n") if line.strip()]
 
 today = datetime.now()
 
+# -------------------------
+# Find first price after market name
+# -------------------------
+
+def find_price(lines, start):
+    for j in range(start, start + 15):
+        try:
+            return float(lines[j])
+        except ValueError:
+            continue
+    return None
+
+
+# -------------------------
+# Wheat Markets
+# -------------------------
+
 wheat = []
 
 for i, line in enumerate(lines):
 
     if line.startswith("10-SWH"):
-        wheat.append({
-            "market": "Soft White Wheat",
-            "price": float(lines[i + 4]),
-            "change": "-"
-        })
+        price = find_price(lines, i)
+        if price is not None:
+            wheat.append({
+                "market": "Soft White Wheat",
+                "price": price,
+                "change": "--"
+            })
 
     elif line.startswith("12-WHC"):
-        wheat.append({
-            "market": "White Wheat 12%",
-            "price": float(lines[i + 4]),
-            "change": "-"
-        })
+        price = find_price(lines, i)
+        if price is not None:
+            wheat.append({
+                "market": "White Wheat 12%",
+                "price": price,
+                "change": "--"
+            })
 
     elif line.startswith("20-HRW"):
-        wheat.append({
-            "market": "Hard Red Winter",
-            "price": float(lines[i + 4]),
-            "change": "-"
-        })
+        price = find_price(lines, i)
+        if price is not None:
+            wheat.append({
+                "market": "Hard Red Winter",
+                "price": price,
+                "change": "--"
+            })
 
     elif line.startswith("30-DNS"):
-        wheat.append({
-            "market": "Dark Northern Spring",
-            "price": float(lines[i + 4]),
-            "change": "-"
-        })
+        price = find_price(lines, i)
+        if price is not None:
+            wheat.append({
+                "market": "Dark Northern Spring",
+                "price": price,
+                "change": "--"
+            })
+
+
 
 print("Found wheat bids:")
 print(wheat)
