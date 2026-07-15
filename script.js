@@ -1,50 +1,88 @@
-// ===============================
+// =====================================
 // AgMarketReport
-// ===============================
+// Reads market-data.json
+// =====================================
 
 fetch("market-data.json")
-.then(response => response.json())
-.then(data => {
+    .then(response => response.json())
+    .then(data => {
 
-    document.getElementById("todayDate").innerHTML = data.date;
-    document.getElementById("lastUpdated").innerHTML = data.updated;
-    document.getElementById("marketMood").innerHTML = data.marketMood;
-    document.getElementById("summary").innerHTML = data.coffeeReport;
+        // Header
+        document.getElementById("todayDate").textContent = data.date;
+        document.getElementById("marketMood").textContent = data.marketMood;
+        document.getElementById("summary").textContent = data.coffeeReport;
+        document.getElementById("lastUpdated").textContent = data.updated;
 
-    function buildTable(id, rows) {
+        // Build any table
+        function buildTable(tableId, rows) {
 
-        let html = "";
+            const table = document.getElementById(tableId);
 
-        rows.forEach(row => {
+            if (!table) return;
 
-            html += "<tr>";
-            html += `<td>${row.market}</td>`;
-            html += `<td>${row.price}</td>`;
-            html += `<td>${row.change}</td>`;
-            html += "</tr>";
+            table.innerHTML = "";
 
-        });
+            if (!rows || rows.length === 0) {
+                table.innerHTML =
+                    "<tr><td colspan='3'>No data available</td></tr>";
+                return;
+            }
 
-        document.getElementById(id).innerHTML = html;
-    }
+            rows.forEach(row => {
 
-    buildTable("wheatTable", data.wheat);
-    buildTable("cropTable", data.crops);
-    buildTable("livestockTable", data.livestock);
-    buildTable("financialTable", data.financial);
+                table.innerHTML += `
+                    <tr>
+                        <td>${row.market}</td>
+                        <td>${row.price}</td>
+                        <td>${row.change}</td>
+                    </tr>
+                `;
 
-});
+            });
+
+        }
+
+        buildTable("wheatTable", data.wheat);
+        buildTable("cropTable", data.crops);
+        buildTable("livestockTable", data.livestock);
+        buildTable("financialTable", data.financial);
+
+        // Weather
+        if (data.weather) {
+
+            document.getElementById("weather").innerHTML = `
+                <p>${data.weather.location}</p>
+                <h3>${data.weather.temp}</h3>
+                <p>${data.weather.conditions}</p>
+            `;
+
+        }
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+        document.getElementById("summary").textContent =
+            "Unable to load market data.";
+
+    });
+
+
+// =====================================
+// Dark Mode
+// =====================================
 
 const btn = document.getElementById("darkModeBtn");
 
-btn.onclick = function () {
+btn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
-    if (document.body.classList.contains("dark")) {
-        btn.innerHTML = "☀️ Light Mode";
-    } else {
-        btn.innerHTML = "🌙 Dark Mode";
-    }
+    btn.textContent =
+        document.body.classList.contains("dark")
+            ? "☀️ Light Mode"
+            : "🌙 Dark Mode";
 
-};
+});
