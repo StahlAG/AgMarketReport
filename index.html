@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AgMarketReport</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>AgMarketReport</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -15,33 +17,16 @@
 <header class="hero">
 
     <h1>🌾 AgMarketReport</h1>
-    <p>Built for Farmers • Updated Automatically Every Morning</p>
+
+    <p>Live Agricultural Markets • Updated Automatically</p>
 
     <button id="darkModeBtn">🌙 Dark Mode</button>
 
 </header>
 
-<div class="container">
+<div class="dashboard">
 
-    <section class="card">
-
-        <h2>☀️ Good Morning</h2>
-
-        <p id="todayDate">Loading...</p>
-
-        <h3 id="marketMood">Loading...</h3>
-
-    </section>
-
-    <section class="card">
-
-        <h2>☕ Morning Coffee Report</h2>
-
-        <p id="summary">
-            Loading today's market report...
-        </p>
-
-    </section>
+    <!-- Top Row -->
 
     <section class="card">
 
@@ -52,68 +37,21 @@
             <thead>
 
                 <tr>
-                    <th>Grade</th>
-                    <th>Bid</th>
+
+                    <th>Wheat</th>
+                    <th>Cash Bid</th>
                     <th>Change</th>
+
                 </tr>
 
             </thead>
 
-            <tbody id="wheatTable">
-
-            </tbody>
+            <tbody id="ritzville-grain"></tbody>
 
         </table>
 
     </section>
 
-    <section class="card">
-
-        <h2>🌱 Crops</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th>Crop</th>
-                    <th>Price</th>
-                    <th>Change</th>
-                </tr>
-
-            </thead>
-
-            <tbody id="cropTable">
-
-            </tbody>
-
-        </table>
-
-    </section>
-
-    <section class="card">
-
-        <h2>🐄 Livestock</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th>Market</th>
-                    <th>Price</th>
-                    <th>Change</th>
-                </tr>
-
-            </thead>
-
-            <tbody id="livestockTable">
-
-            </tbody>
-
-        </table>
-
-    </section>
 
     <section class="card">
 
@@ -124,20 +62,99 @@
             <thead>
 
                 <tr>
+
                     <th>Market</th>
                     <th>Value</th>
                     <th>Change</th>
+
                 </tr>
 
             </thead>
 
-            <tbody id="financialTable">
-
-            </tbody>
+            <tbody id="financialTable"></tbody>
 
         </table>
 
     </section>
+
+
+    <!-- Second Row -->
+
+    <section class="card">
+
+        <h2>🌱 Crops</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Commodity</th>
+                    <th>Price</th>
+                    <th>Change</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="cropTable"></tbody>
+
+        </table>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🐄 Livestock</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Market</th>
+                    <th>Price</th>
+                    <th>Change</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="livestockTable"></tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Third Row -->
+
+    <section class="card">
+
+        <h2>💱 Exchange Rates</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Currency</th>
+                    <th>Rate</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="exchangeTable"></tbody>
+
+        </table>
+
+    </section>
+
 
     <section class="card">
 
@@ -145,25 +162,24 @@
 
         <div id="weather">
 
-            <p>Ritzville, Washington</p>
-
-            <h3>Updating...</h3>
-
-            <p>Please wait...</p>
+            <h3>Loading...</h3>
 
         </div>
 
     </section>
 
-    <section class="card">
 
-        <h2>🕒 Last Updated</h2>
+    <!-- Bottom -->
 
-        <h3 id="lastUpdated">
+    <section class="summary card full">
 
-            Loading...
+        <h2>☕ Morning Coffee Report</h2>
 
-        </h3>
+        <p id="summary">
+
+            Loading market summary...
+
+        </p>
 
     </section>
 
@@ -172,7 +188,9 @@
 <footer>
 
     <p>
-        🌾 AgMarketReport • Built for Farmers
+
+        🌾 AgMarketReport • Live Cash Bids • Futures • Markets • Weather
+
     </p>
 
 </footer>
