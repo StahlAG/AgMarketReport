@@ -1,25 +1,36 @@
-fetch("market-data.json")
-
-.then(response => response.json())
-
-.then(data => {
-
-    const bids = data.ritzville.cashBids;
-
-    if (bids.length >= 4){
-
-        document.getElementById("softWhite").textContent =
-            "$" + bids[0].price;
-
-        document.getElementById("white12").textContent =
-            "$" + bids[1].price;
-
-        document.getElementById("hrw").textContent =
-            "$" + bids[2].price;
-
-        document.getElementById("dns").textContent =
-            "$" + bids[3].price;
-
-    }
-
-});
+{
+    "ritzville": {
+        "cashBids": [
+            {
+                "commodity": "Soft White Wheat",
+                "price": "6.10",
+                "change": ""
+            },
+            {
+                "commodity": "White Wheat 12%",
+                "price": "6.60",
+                "change": ""
+            },
+            {
+                "commodity": "Hard Red Winter",
+                "price": "6.80",
+                "change": ""
+            },
+            {
+                "commodity": "Dark Northern Spring",
+                "price": "6.62",
+                "change": ""
+            }
+        ]
+    },
+    "futures": {},
+    "financialMarkets": {},
+    "exchangeRates": {},
+    "potatoes": {},
+    "cropMarkets": {},
+    "livestock": {},
+    "weather": {},
+    "marketMood": "",
+    "coffeeReport": "",
+    "updated": "2026-07-17 02:06"
+}
