@@ -1,36 +1,25 @@
 {
-    "date": "Thursday, July 16, 2026",
-    "updated": "11:39 PM",
-    "marketMood": "Neutral",
-    "coffeeReport": "Today's Ritzville grain bids have been updated.",
-    "wheat": [
-        {
-            "market": "Soft White Wheat",
-            "price": 5.85,
-            "change": "--"
-        },
-        {
-            "market": "White Wheat 12%",
-            "price": 6.35,
-            "change": "--"
-        },
-        {
-            "market": "Hard Red Winter",
-            "price": 6.56,
-            "change": "--"
-        },
-        {
-            "market": "Dark Northern Spring",
-            "price": 6.4,
-            "change": "--"
-        }
-    ],
-    "crops": [],
-    "livestock": [],
-    "financial": [],
-    "weather": {
-        "location": "Ritzville, WA",
-        "temp": "--",
-        "conditions": "Updating..."
-    }
+  "ritzville": {
+    "cashBids": []
+  },
+
+  "futures": {},
+
+  "financialMarkets": {},
+
+  "exchangeRates": {},
+
+  "potatoes": {},
+
+  "cropMarkets": {},
+
+  "livestock": {},
+
+  "weather": {},
+
+  "marketMood": "",
+
+  "coffeeReport": "",
+
+  "updated": ""
 }
