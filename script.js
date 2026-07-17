@@ -57,9 +57,11 @@ fetch("market-data.json")
 
     let html = "";
 
-    if (data.wheat && data.wheat.length > 0) {
+    if (data.ritzville && 
+        data.ritzville.cashBids &&
+        data.ritzville.cashBids.length > 0) {
 
-        data.wheat.forEach(function(item){
+        data.ritzville.cashBids.forEach(function(item){
 
             let arrow = "➖";
 
@@ -71,7 +73,7 @@ fetch("market-data.json")
 
             html += `
             <tr>
-                <td>${item.market}</td>
+                <td>${item.commodity}</td>
                 <td>$${item.price}</td>
                 <td>${arrow} ${item.change}</td>
             </tr>
