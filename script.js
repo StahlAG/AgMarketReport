@@ -52,46 +52,21 @@ fetch("market-data.json")
         (data.updated || "Unknown");
 
     // -----------------------------
-    // Ritzville Cash Bids
-    // -----------------------------
+// Ritzville Cash Bids
+// -----------------------------
 
-    let html = "";
+if (data.ritzville &&
+    data.ritzville.cashBids &&
+    data.ritzville.cashBids.length >= 4) {
 
-    if (data.ritzville && 
-        data.ritzville.cashBids &&
-        data.ritzville.cashBids.length > 0) {
+    const bids = data.ritzville.cashBids;
 
-        data.ritzville.cashBids.forEach(function(item){
+    document.getElementById("softwhite").innerHTML = "$" + bids[0].price;
+    document.getElementById("white12").innerHTML = "$" + bids[1].price;
+    document.getElementById("hrw").innerHTML = "$" + bids[2].price;
+    document.getElementById("dns").innerHTML = "$" + bids[3].price;
 
-            let arrow = "➖";
-
-            if(item.change.includes("+"))
-                arrow = "🟢 ▲";
-
-            if(item.change.includes("-"))
-                arrow = "🔴 ▼";
-
-            html += `
-            <tr>
-                <td>${item.commodity}</td>
-                <td>$${item.price}</td>
-                <td>${arrow} ${item.change}</td>
-            </tr>
-            `;
-
-        });
-
-    } else {
-
-        html = `
-        <tr>
-            <td colspan="3">
-                Waiting for live Ritzville bids...
-            </td>
-        </tr>
-        `;
-
-    }
+}
 
     document.getElementById("ritzville-grain").innerHTML = html;
 
