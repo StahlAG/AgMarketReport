@@ -10,3 +10,76 @@ body{
     display:block;
     height:auto;
 }
+.dashboard-container{
+
+    position:relative;
+
+    width:100%;
+
+}
+
+.dashboard{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.price{
+
+    position:absolute;
+
+    color:#ffffff;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    font-family:Arial,sans-serif;
+
+    text-shadow:0 0 6px #000;
+
+}
+
+/* Desktop positions */
+
+#softWhite{
+
+    top:30.8%;
+
+    left:69%;
+
+}
+
+#white12{
+
+    top:33.9%;
+
+    left:69%;
+
+}
+
+#hrw{
+
+    top:37%;
+
+    left:69%;
+
+}
+
+#dns{
+
+    top:40.1%;
+
+    left:69%;
+
+}
