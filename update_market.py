@@ -1,1 +1,1 @@
-from ritzville_grain import get_ritville_cash_bids
+from ritzville_grain import get_ritzville_cash_bids
