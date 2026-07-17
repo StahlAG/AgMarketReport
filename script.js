@@ -1,18 +1,25 @@
 fetch("market-data.json")
 .then(response => response.json())
 .then(data => {
+if (data.ritzville && data.ritzville.cashBids){
 
-    if (data.ritzville &&
-        data.ritzville.cashBids &&
-        data.ritzville.cashBids.length >= 4) {
+    let html = "";
 
-        const bids = data.ritzville.cashBids;
+    data.ritzville.cashBids.forEach(item=>{
 
-        document.getElementById("softWhite").innerHTML = "$" + bids[0].price;
-        document.getElementById("white12").innerHTML = "$" + bids[1].price;
-        document.getElementById("hrw").innerHTML = "$" + bids[2].price;
-        document.getElementById("dns").innerHTML = "$" + bids[3].price;
-    }
+        html += `
+        <tr>
+            <td>${item.commodity}</td>
+            <td>$${item.price}</td>
+            <td>${item.change}</td>
+        </tr>
+        `;
+
+    });
+
+    document.querySelector("#ritzville-table tbody").innerHTML = html;
+
+}
 
 })
 .catch(error => console.log(error));
