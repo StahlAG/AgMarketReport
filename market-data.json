@@ -1,25 +1,36 @@
 {
-  "ritzville": {
-    "cashBids": []
-  },
-
-  "futures": {},
-
-  "financialMarkets": {},
-
-  "exchangeRates": {},
-
-  "potatoes": {},
-
-  "cropMarkets": {},
-
-  "livestock": {},
-
-  "weather": {},
-
-  "marketMood": "",
-
-  "coffeeReport": "",
-
-  "updated": ""
+    "ritzville": {
+        "cashBids": [
+            {
+                "commodity": "Soft White Wheat",
+                "price": "6.10",
+                "change": ""
+            },
+            {
+                "commodity": "White Wheat 12%",
+                "price": "6.60",
+                "change": ""
+            },
+            {
+                "commodity": "Hard Red Winter",
+                "price": "6.83",
+                "change": ""
+            },
+            {
+                "commodity": "Dark Northern Spring",
+                "price": "6.64",
+                "change": ""
+            }
+        ]
+    },
+    "futures": {},
+    "financialMarkets": {},
+    "exchangeRates": {},
+    "potatoes": {},
+    "cropMarkets": {},
+    "livestock": {},
+    "weather": {},
+    "marketMood": "",
+    "coffeeReport": "",
+    "updated": "2026-07-17 01:11"
 }
