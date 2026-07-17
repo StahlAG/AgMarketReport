@@ -103,7 +103,7 @@ fetch("market-data.json")
     document.getElementById("summary").innerHTML =
         "Unable to load market data.";
 
-    document.getElementById("ritzville-grain").innerHTML =
+    document.getElementById("ritzville-table").innerHTML =
         "<tr><td colspan='3'>Market data unavailable.</td></tr>";
 
 });
