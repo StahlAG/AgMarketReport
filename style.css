@@ -59,18 +59,18 @@ body{
 
 #ritzville-table{
     position:absolute;
-    top:23.8%;
-    left:2.5%;
+    top:20.8%;
+    left:2.2%;
 
-    width:95%;
-    height:18.2%;
+    width:95.6%;
+    height:13.8%;
 
     background:#071015;
 
-    border:1px solid #3b4b3d;
-    border-radius:8px;
+    border: none;
+    border-radius:0;
 
-    padding:14px;
+    padding:8px 12px;
 
     box-sizing:border-box;
 
@@ -86,15 +86,15 @@ body{
 
 #ritzville-table th{
     color:#bcbcbc;
-    font-size:13px;
+    font-size: 12px;
     text-align:left;
-    padding:6px;
+    padding:3px 6px;
 }
 
 #ritzville-table td{
     color:#ffffff;
-    padding:7px 6px;
-    font-size:18px;
+    padding:4px 6px;
+    font-size:15px;
     border-top:1px solid #2a2a2a;
 }
 
