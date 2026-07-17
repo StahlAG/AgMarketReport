@@ -1,6 +1,8 @@
 fetch("market-data.json")
 .then(response => response.json())
 .then(data => {
+    alert("Script Loaded");
+    console.log(data);
 
     if (data.ritzville &&
         data.ritzville.cashBids &&
