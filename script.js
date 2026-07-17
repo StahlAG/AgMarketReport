@@ -61,24 +61,24 @@ if (data.ritzville &&
 
     const bids = data.ritzville.cashBids;
 
-    document.getElementById("softwhite").innerHTML = "$" + bids[0].price;
+    document.getElementById("softWhite").innerHTML = "$" + bids[0].price;
     document.getElementById("white12").innerHTML = "$" + bids[1].price;
     document.getElementById("hrw").innerHTML = "$" + bids[2].price;
     document.getElementById("dns").innerHTML = "$" + bids[3].price;
 
 }
 
-    document.getElementById("ritzville-table").innerHTML = html;
+   // document.getElementById("ritzville-table").innerHTML = html;
 
 })
 .catch(error => {
 
     console.log(error);
 
-    document.getElementById("summary").innerHTML =
-        "Unable to load market data.";
+  //  document.getElementById("summary").innerHTML =
+    //    "Unable to load market data.";
 
-    document.getElementById("ritzville-table").innerHTML =
-        "<tr><td colspan='3'>Market data unavailable.</td></tr>";
+   // document.getElementById("ritzville-table").innerHTML =
+    //    "<tr><td colspan='3'>Market data unavailable.</td></tr>";
 
 });
