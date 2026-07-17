@@ -18,7 +18,7 @@
             },
             {
                 "commodity": "Dark Northern Spring",
-                "price": "6.46",
+                "price": "6.44",
                 "change": ""
             }
         ]
@@ -32,5 +32,5 @@
     "weather": {},
     "marketMood": "",
     "coffeeReport": "",
-    "updated": "2026-07-17 16:02"
+    "updated": "2026-07-17 16:08"
 }
