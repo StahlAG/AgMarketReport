@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 URL = "https://www.ritzwhse.com/cash-bids"
 
@@ -10,47 +11,48 @@ HEADERS = {
 
 def get_ritzville_cash_bids():
 
-    try:
+    print("Downloading Ritzville cash bids...")
 
-        response = requests.get(URL, headers=HEADERS, timeout=20)
-        response.raise_for_status()
+    page = requests.get(URL, headers=HEADERS, timeout=30)
 
-        soup = BeautifulSoup(response.text, "html.parser")
+    page.raise_for_status()
 
-        rows = soup.find_all("tr")
+    text = BeautifulSoup(page.text, "html.parser").get_text("\n")
 
-        bids = []
+    bids = []
 
-        for row in rows:
+    products = [
+        ("10-SWH", "Soft White Wheat"),
+        ("12-WHC", "White Wheat 12%"),
+        ("20-HRW", "Hard Red Winter"),
+        ("30-DNS", "Dark Northern Spring")
+    ]
 
-            cols = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
+    for code, name in products:
 
-            if len(cols) < 2:
-                continue
+        pattern = rf"{re.escape(code)}.*?JUL\s*([0-9]+\.[0-9]+)"
 
-            commodity = cols[0]
+        match = re.search(pattern, text, re.S)
 
-            if "$" not in " ".join(cols):
-                continue
-
-            price = ""
-
-            for col in cols:
-                if "$" in col:
-                    price = col
-                    break
+        if match:
 
             bids.append({
-                "commodity": commodity,
-                "cashBid": price,
-                "change": "",
-                "trend": ""
+
+                "commodity": name,
+
+                "price": match.group(1),
+
+                "change": ""
+
             })
 
-        return bids
+    return bids
 
-    except Exception as e:
 
-        print(e)
+if __name__ == "__main__":
 
-        return []
+    prices = get_ritzville_cash_bids()
+
+    for row in prices:
+
+        print(row)
