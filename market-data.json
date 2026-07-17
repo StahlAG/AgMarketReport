@@ -3,22 +3,22 @@
         "cashBids": [
             {
                 "commodity": "Soft White Wheat",
-                "price": "6.10",
+                "price": "5.85",
                 "change": ""
             },
             {
                 "commodity": "White Wheat 12%",
-                "price": "6.60",
+                "price": "6.35",
                 "change": ""
             },
             {
                 "commodity": "Hard Red Winter",
-                "price": "6.82",
+                "price": "6.56",
                 "change": ""
             },
             {
                 "commodity": "Dark Northern Spring",
-                "price": "6.61",
+                "price": "6.37",
                 "change": ""
             }
         ]
@@ -32,5 +32,5 @@
     "weather": {},
     "marketMood": "",
     "coffeeReport": "",
-    "updated": "2026-07-17 07:00"
+    "updated": "2026-07-17 07:06"
 }
