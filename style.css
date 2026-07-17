@@ -47,7 +47,7 @@ body{
     backround: rgba (0,0,0,.90);
     padding: 2px 8px;
     border-radius:4px;
-    font-size:22px;
+    font-size:19px;
     font-weight:bold;
     text-shadow:0 0 6px #000;
 }
@@ -55,8 +55,8 @@ body{
 /* Ritzville prices */
 
 #softWhite{
-    top:20%;
-    left:30%;
+    top:30%;
+    left:35%;
 }
 
 #white12{
