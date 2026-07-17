@@ -61,10 +61,10 @@ if (data.ritzville &&
 
     const bids = data.ritzville.cashBids;
 
-    document.getElementById("softWhite").innerHTML = "$" + bids[0].price;
-    document.getElementById("white12").innerHTML = "$" + bids[1].price;
-    document.getElementById("hrw").innerHTML = "$" + bids[2].price;
-    document.getElementById("dns").innerHTML = "$" + bids[3].price;
+  //   document.getElementById("softWhite").innerHTML = "$" + bids[0].price;
+   // document.getElementById("white12").innerHTML = "$" + bids[1].price;
+  //  document.getElementById("hrw").innerHTML = "$" + bids[2].price;
+   // document.getElementById("dns").innerHTML = "$" + bids[3].price;
 
 }
 
