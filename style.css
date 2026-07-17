@@ -52,17 +52,28 @@ body{
 
 #ritzville-table{
 
-    width:100%;
+   #ritzville-table{
+    position:absolute;
 
-    border-collapse:collapse;
+    top:23.8%;
+    left:2.5%;
 
-    color:white;
+    width:95%;
+    height:18.2%;
 
-    font-family:Arial,sans-serif;
+    background:#071015;
 
-    font-size:17px;
+    border:1px solid #3b4b3d;
+    border-radius:8px;
 
+    padding:14px;
+
+    box-sizing:border-box;
+
+    z-index:100;
 }
+
+   
 
 #ritzville-table th{
 
