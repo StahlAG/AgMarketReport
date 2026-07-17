@@ -68,7 +68,7 @@ if (data.ritzville &&
 
 }
 
-    document.getElementById("ritzville-grain").innerHTML = html;
+    document.getElementById("ritzville-table").innerHTML = html;
 
 })
 .catch(error => {
