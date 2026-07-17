@@ -13,12 +13,12 @@
             },
             {
                 "commodity": "Hard Red Winter",
-                "price": "6.83",
+                "price": "6.82",
                 "change": ""
             },
             {
                 "commodity": "Dark Northern Spring",
-                "price": "6.64",
+                "price": "6.63",
                 "change": ""
             }
         ]
@@ -32,5 +32,5 @@
     "weather": {},
     "marketMood": "",
     "coffeeReport": "",
-    "updated": "2026-07-17 01:11"
+    "updated": "2026-07-17 01:41"
 }
