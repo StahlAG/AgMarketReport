@@ -50,9 +50,15 @@ body{
 
 }
 
+#ritzville-panel{
+    position:absolute;
+    top:26.3%;
+    left:2.8%;
+    width:94%;
+}
+
 #ritzville-table{
     position:absolute;
-
     top:23.8%;
     left:2.5%;
 
@@ -71,10 +77,10 @@ body{
     z-index:100;
 }
 
-   #ritzville-table table{
+#ritzville-table table{
     width:100%;
     border-collapse:collapse;
-    color:white;
+    color:#ffffff;
     font-family:Arial,sans-serif;
 }
 
@@ -86,17 +92,15 @@ body{
 }
 
 #ritzville-table td{
+    color:#ffffff;
     padding:7px 6px;
     font-size:18px;
     border-top:1px solid #2a2a2a;
 }
-   
-
 
 #ritzville-table td:nth-child(2),
 #ritzville-table td:nth-child(3){
-
     text-align:right;
-
 }
+
 
