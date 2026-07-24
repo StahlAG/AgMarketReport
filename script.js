@@ -13,8 +13,6 @@ bids.forEach(row=>{
 
 html+=`
 
-<div>${row[0]}</div>
-
 <div class="bid">$${row[1]}</div>
 
 <div class="change">${row[2]}</div>
