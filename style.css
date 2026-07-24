@@ -6,13 +6,11 @@
 
     position:absolute;
 
-    top:37%;/*moves up and down*/
-    left:46.5%;/* moves left right*/
+    top:35.8%;/* moves up and down*/
+    left:43.8%;/* moves left right*/
 
-    width:20%;/*wider /narrower*/
-    height:18%;/*row spacing*/
-
-   font-size:18px; /*text size*/
+    width:19%;/*wider /narrower*/
+    height:17%;/*row spacing*/
 
     display:grid;
 
@@ -20,15 +18,12 @@
 
     grid-auto-rows:1fr;
 
+    row-gap:5px;
+    column-gap:8px;
+
     align-items:center;
 
-    font-family:Arial,sans-serif;
-
-    font-size:15px;
-
-    color:#fff;
-
-    z-index:100;
+   
 
 }
 
