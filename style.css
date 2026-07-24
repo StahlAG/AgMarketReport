@@ -6,13 +6,13 @@
 
     position:absolute;
 
-    top:35.2%;/*moves up and down*/
-    left:43.8%;/* moves left right*/
+    top:37%;/*moves up and down*/
+    left:46.5%;/* moves left right*/
 
-    width:17%;/*wider /narrower*/
+    width:20%;/*wider /narrower*/
     height:18%;/*row spacing*/
 
-   font-size:20px; /*text size*/
+   font-size:18px; /*text size*/
 
     display:grid;
 
