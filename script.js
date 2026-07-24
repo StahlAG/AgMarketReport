@@ -1,25 +1,26 @@
-fetch("market-data.json")
-.then(response => response.json())
-.then(data => {
-if (data.ritzville && data.ritzville.cashBids){
+const bids = [
 
-    let html = "";
+["Soft White Wheat","5.85","+0.02"],
+["White Wheat 12%","6.35","+0.01"],
+["Hard Red Winter","6.69","-0.03"],
+["Dark Northern Spring","6.48","+0.04"]
 
-    data.ritzville.cashBids.forEach(item=>{
+];
 
-        html += `
-        <tr>
-            <td>${item.commodity}</td>
-            <td>$${item.price}</td>
-            <td>${item.change}</td>
-        </tr>
-        `;
+let html="";
 
-    });
+bids.forEach(row=>{
 
-    document.querySelector("#ritzville-table tbody").innerHTML = html;
+html+=`
 
-}
+<div>${row[0]}</div>
 
-})
-.catch(error => console.log(error));
+<div class="bid">$${row[1]}</div>
+
+<div class="change">${row[2]}</div>
+
+`;
+
+});
+
+document.getElementById("ritzville-grid").innerHTML=html;
