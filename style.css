@@ -1,111 +1,63 @@
-.local-wheat{
+.market-card{
 
-    background:#081014;
+    background:#071015;
 
     border:1px solid #3b4b3d;
 
-    border-radius:12px;
+    border-radius:10px;
 
-    padding:18px;
+    overflow:hidden;
 
-    color:#ffffff;
+    max-width:1200px;
 
-    font-family:Arial,Helvetica,sans-serif;
+    margin:30px auto;
 
-    box-shadow:0 0 10px rgba(0,0,0,.4);
+    box-shadow:0 0 15px rgba(0,0,0,.35);
 
-}
-
-.tile-header{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:16px;
-
-}
-
-.tile-header h2{
-
-    flex:1;
-
-    margin-left:10px;
-
-    font-size:24px;
-
-    font-weight:700;
-
-}
-
-.tile-header a{
-
-    color:#8bc53f;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-}
-
-.market-header,
-.market-row{
-
-    display:grid;
-
-    grid-template-columns:
-        2.5fr
-        .9fr
-        .9fr
-        1fr;
-
-    align-items:center;
-
-}
+} 
 
 .market-header{
 
-    color:#9ea6a9;
+    display:flex;
 
-    font-size:13px;
+    justify-content:space-between;
 
-    text-transform:uppercase;
+    align-items:center;
 
-    padding-bottom:8px;
+    padding:16px 20px;
 
-    border-bottom:1px solid #2b3437;
-
-}
-
-.market-row{
-
-    height:42px;
-
-    border-bottom:1px solid #1a2226;
+    border-bottom:1px solid #253328;
 
 }
 
-.market-row div:nth-child(2),
-.market-row div:nth-child(3){
+.market-title{
 
-    text-align:right;
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    font-family:Arial,sans-serif;
 
 }
 
-.market-row:hover{
+.view-all{
 
-    background:#10181d;
+    color:#8fcf2d;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    font-family:Arial,sans-serif;
 
 }
 
-.trend{
+.view-all:hover{
 
-    height:18px;
-
-    border-radius:4px;
-
-    background:#1a2226;
+    color:#b6ff57;
 
 }
